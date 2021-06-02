@@ -18,9 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('comments');
 });
+
 Route::get('/comments', [CommentController::class, 'index'])->name('comments');
+Route::get('/answer', [CommentController::class, 'answer'])->name('answer')->middleware('auth');
+Route::post('/answer', [CommentController::class, 'answerStore'])->name('answer.store')->middleware('auth');
 Route::get('/comments/{id}', [CommentController::class, 'comments'])->name('comments.list');
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
-Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/sign-in', [AuthController::class, 'signIn'])->name('auth.sign-in');
 Route::get('/register', [AuthController::class, 'register'])->name('auth.register');

@@ -16,6 +16,9 @@ class AuthController extends Controller
 {
     public function login()
     {
+        if(\auth()->user()){
+            return redirect('/');
+        }
         return view('auth.login');
     }
     public function signIn(Request $request)
@@ -26,7 +29,7 @@ class AuthController extends Controller
         ]);
         if (filter_var($request->login, FILTER_VALIDATE_EMAIL)) {
             if (Auth::attempt(['email'=> trim($request->login), 'password'=> trim($request->password)])) {
-                return response()->json(\auth()->user());
+                return redirect('/');
             }
         }
         return response()->json([

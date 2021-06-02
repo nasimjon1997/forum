@@ -25,6 +25,9 @@
                             <div class="col-auto">
                                 <a href="{{route('comments.list',$comment->id)}}" class="btn btn-primary">Ответы</a>
                             </div>
+                            <div class="col-auto">
+                                <a href="{{route('answer')}}" class="btn btn-primary">Задать вопрос</a>
+                            </div>
                         </div> <!-- / .row -->
                     </div>
 
@@ -36,7 +39,7 @@
                     @if($comment->image)
                     <!-- Image -->
                     <p class="text-center mb-3">
-                        <img src="{{$comment->image}}" alt="..." class="img-fluid rounded">
+                        <img src="/{{$comment->image}}" alt="..." class="img-fluid rounded">
                     </p>
                         @endif
                     <div class="mb-3">

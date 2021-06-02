@@ -10,7 +10,6 @@
                     <div class="mb-3">
                         <div class="row align-items-center">
                             <div class="col ml-n2">
-
                                 <!-- Title -->
                                 <h4 class="mb-1">
                                     {{$parent->user->name}}
@@ -35,7 +34,7 @@
                 @if($parent->image)
                     <!-- Image -->
                         <p class="text-center mb-3">
-                            <img src="{{$parent->image}}" alt="..." class="img-fluid rounded">
+                            <img src="/{{$parent->image}}" alt="..." class="img-fluid rounded">
                         </p>
                     @endif
                     <div class="mb-3">
