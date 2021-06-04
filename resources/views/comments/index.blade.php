@@ -67,6 +67,6 @@
         </div>
     </div>
     <div class="d-flex justify-content-center">
-        {{ $comments->links() }}
+        {!! $comments->onEachSide(5)->links() !!}
     </div>
 @endsection

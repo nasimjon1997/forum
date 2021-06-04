@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
     {
          User::factory(20)->create();
          Comment::factory(1000)->create();
+         Comment::where('id','<', 101)->update(['parent_id' => null]);
     }
 }

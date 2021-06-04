@@ -1,4 +1,4 @@
-@extends('comments.app')
+@extends('layouts.app')
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -112,7 +112,7 @@
                         <div class="col-auto align-self-end">
                             <!-- Icons -->
                                 <button type="submit" class="text-reset">
-                                    <i class="fe fe-send"></i>
+                                    Сохронить
                                 </button>
                         </div>
                         </form>
