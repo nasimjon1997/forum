@@ -62,11 +62,6 @@
                     <!-- Comments -->
                     <div class="comment mb-3">
                         @foreach($comments as $comment)
-                        <div class="row">
-                            <div class="col ml-n2">
-
-                                <!-- Body -->
-                                <div class="comment-body">
 
                                     <div class="row">
                                         <div class="col">
@@ -88,25 +83,31 @@
                                     <p class="comment-text">
                                         {{$comment->text}}
                                     </p>
-                                </div>
 
-                            </div>
-                        </div> <!-- / .row -->
+                                @if($comment->image)
+                                    <!-- Image -->
+                                        <p class="text-center mb-3">
+                                            <img src="/{{$comment->image}}" alt="..." class="img-fluid rounded">
+                                        </p>
+                                    @endif
                             <hr>
                             @endforeach
                     </div>
                     <!-- Form -->
                     <div class="row">
-                        <form action="{{ route('comments.store') }}" method="POST" accept-charset="utf-8">
+                        <form action="{{ route('comments.store') }}" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
                             @csrf
                         <input name="parent_id" hidden value="{{$parent->id}}">
                         <div class="col ml-n2">
                             <!-- Input -->
                             <div class="mt-1">
-                                <label class="sr-only">Ваш коммент...</label>
-                                <textarea class="form-control form-control-flush" name="text" data-toggle="autosize" rows="1" placeholder="Leave a comment"></textarea>
+                                <label class="sr-only">Ваш коммент</label>
+                                <textarea class="form-control form-control-flush" name="text"  rows="3" placeholder="Вопрос" maxlength="1000"></textarea>
                             </div>
-
+                            <div class="mt-1">
+                                <label class="sr-only">Изображение...</label>
+                                <input type="file" class="form-control form-control-flush" name="image" placeholder="Изображение" accept=".jpg, .jpeg, .png, .jpg">
+                            </div>
                         </div>
                         <div class="col-auto align-self-end">
                             <!-- Icons -->

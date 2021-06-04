@@ -24,8 +24,9 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'place_id' => 'required|numeric|digits_between:1,20',
-            'name' => 'required|string|min:2|max:100',
+            'parent_id' => 'required|numeric|digits_between:1,20',
+            'text' => 'required|string|min:2|max:100',
+            'image' => ''
         ];
     }
 }

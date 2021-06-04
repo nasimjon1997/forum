@@ -1,8 +1,12 @@
-@extends('comments.app')
+@extends('layouts.app')
 @section('content')
+    <div class="row mt-3">
+        <div class="col-12 d-flex justify-content-end">
+                <a href="{{route('answer')}}" class="btn btn-primary">Задать вопрос</a>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
-
             @foreach($comments as $comment)
             <!-- Card -->
             <div class="card">
@@ -25,9 +29,7 @@
                             <div class="col-auto">
                                 <a href="{{route('comments.list',$comment->id)}}" class="btn btn-primary">Ответы</a>
                             </div>
-                            <div class="col-auto">
-                                <a href="{{route('answer')}}" class="btn btn-primary">Задать вопрос</a>
-                            </div>
+
                         </div> <!-- / .row -->
                     </div>
 
@@ -63,5 +65,8 @@
             </div>
                 @endforeach
         </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        {{ $comments->links() }}
     </div>
 @endsection

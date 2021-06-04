@@ -12,11 +12,13 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/dashboard/theme.css') }}" rel="stylesheet">
+
     </head>
     <body>
         <div class="main-content">
             @yield('content')
         </div>
         <script src="{{ asset('js/dashboard/app.js') }}"></script>
+
     </body>
 </html>
